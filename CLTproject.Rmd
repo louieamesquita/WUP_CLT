@@ -91,27 +91,31 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 
 
 ```{r}
-numb = 9
+numb = 16
 Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
 mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k3 = x.avg
+my1000$k4 = x.avg
 
 
-p <- ggplot(my1000, aes(x=k3),col=sex) + 
+p <- ggplot(my1000, aes(x=k4),col=sex) + 
   geom_density() +
 
 # Add mean line
  geom_vline(aes(xintercept=mean(k3)),
             color="blue", linetype="dashed", size=1)
-p + ggtitle("n = 9") +
+p + ggtitle("n = 16") +
   xlab("temperature") + ylab(" density")
 
-print(paste('mean = ', mean(my1000$k5),' sd = ',sd(my1000$k5)))
+print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 
 ```
 
 The standard deviation shrinks as the number gets higher example 4 is divided by 2, 9 is divided by 3. 16 divided by 4 and so on. the expected value is not the original data we collected. the deviation is going to stay the same. The higher the example 4 is divided by 2, 9 is divided by 3. 16 divided by 4 and so on. The standard deviation is with n=9 'r not'. 
+
+we expected 14 and we got `r sd (my1000$k3)`
+
+
 
 
 
